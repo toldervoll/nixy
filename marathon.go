@@ -284,6 +284,9 @@ func fetchApps(jsontasks *MarathonTasks, jsonapps *MarathonApps) error {
 	if taskserr != nil {
 		return taskserr
 	}
+	if len(*jsonapps) == 0 && len(*jsontasks) == 0 {
+		return errors.New("no apps or tasks found")
+	}
 	return nil
 }
 
