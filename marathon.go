@@ -386,7 +386,7 @@ func syncApps(jsontasks *MarathonTasks, jsonapps *MarathonApps) {
 
 func writeConf() error {
 	if (len(config.Apps) == 0) {
-		return errors.New("no apps found, not updating nginx config to avoid overwriting")
+		return errors.New("no apps found, not updating nginx config to avoid deleting existing config")
 	}
 
 	template, err := template.New(filepath.Base(config.Nginx_template)).ParseFiles(config.Nginx_template)
